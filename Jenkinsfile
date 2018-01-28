@@ -1,5 +1,8 @@
 pipeline {
 	agent any
+	environment {
+		GITHUB_ACCESS_ID = credentials('github-access-id')
+	}	
 	tools {
 		maven 'Maven 3.5.2'
 	}
@@ -10,11 +13,12 @@ pipeline {
 		stage ('Checkout') {
 			steps {
 				git branch: 'master', url: 'https://github.com/rcroce/springboot-product.git'
+				checkout scm				
 			}
 		}
 		stage ('Compile') {
 			steps {
-				sh 'mvn clean compile'
+				sh 'mvn clean'
 			}
 		}
 	}
