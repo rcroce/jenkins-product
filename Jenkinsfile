@@ -7,7 +7,7 @@ pipeline {
         timeout(time: 10, unit: 'MINUTES') 
     }
 	stages {
-		stage ('Compile Stage') {
+		stage ('Compile') {
 			steps {
 				sh 'mvn clean compile'
 			}
