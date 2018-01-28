@@ -13,7 +13,7 @@ pipeline {
 		stage ('Checkout') {
 			steps {
 				git branch: 'master', url: 'https://github.com/rcroce/springboot-product.git'
-				checkout scm				
+				Checkout scm				
 			}
 		}
 		stage ('Compile') {
