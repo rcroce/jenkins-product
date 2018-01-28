@@ -4,11 +4,13 @@ pipeline {
 		maven 'Maven 3.5.2'
 	}
 	options {
-        timeout(time: 10, unit: 'MINUTES') 
-    }
+		timeout(time: 10, unit: 'MINUTES') 
+	}
 	stages {
 		stage ('Checkout') {
-			git branch: 'master', url: 'https://github.com/rcroce/springboot-product.git'
+			steps {
+				git branch: 'master', url: 'https://github.com/rcroce/springboot-product.git'
+			}
 		}
 		stage ('Compile') {
 			steps {
